@@ -121,10 +121,12 @@ function getScore(){
     result_section.innerText = ` Stundent's score: ${numOfCorrectAnswers} out of  ${correctAnswers.length}`
     pass_failParagraph.innerText = numOfCorrectAnswers >= 15 ? `You Pass` : `You Fail`;
     pass_failParagraph.className = numOfCorrectAnswers >= 15 ? `pass_fail pass` : `pass_fail fail`;
+
     if(wrongAnswers.length === 0){
-        document.querySelector("h3").style.display = 'none';
+        document.getElementById("wrong_answersHeader").style.display  = "none";
     }
-    else getWrongAnswers();
+
+    getWrongAnswers();
    
 
     console.log(stundentAnswers);
@@ -143,8 +145,7 @@ function reset(){
     numOfWrongAnswers = 0;
 }
 
-
-
+console.log(document.getElementById("wrong_answersHeader"));
 
     
 
