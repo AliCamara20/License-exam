@@ -114,25 +114,18 @@ function getScore(){
             
     }
 
-    if(wrongAnswers.length === 0){
-        let unAnsweredQuestions = correctAnswers.length - stundentAnswers.length;
-        if(unAnsweredQuestions > 0){
-            wrongAnswersContainer.innerHTML = `
-                <p class = 'wrong_answer'>
-                    No wrong answers, ${unAnsweredQuestions} question(s) are not answered
-                </p>
-            `
-        }
-
-        else wrongAnswersContainer.innerHTML = `<p class = 'wrong_answer'>All answers are correct</p>`
-    }
+    
 
     let resultContainer = document.getElementById('resultSection') ;
     scrollToElement(resultContainer);
     result_section.innerText = ` Stundent's score: ${numOfCorrectAnswers} out of  ${correctAnswers.length}`
     pass_failParagraph.innerText = numOfCorrectAnswers >= 15 ? `You Pass` : `You Fail`;
     pass_failParagraph.className = numOfCorrectAnswers >= 15 ? `pass_fail pass` : `pass_fail fail`;
-    getWrongAnswers();
+    if(wrongAnswers.length === 0){
+        document.querySelector("h3").style.display = 'none';
+    }
+    else getWrongAnswers();
+   
 
     console.log(stundentAnswers);
     console.log(wrongAnswers);
